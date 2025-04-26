@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARREFA</title>
+    <style>
+/* Basic Styles for the Header */
+
+/* Layout */
+.container {
+    width: 90%; /* Changed from fixed 80em to percentage */
+    max-width: 1200px; /* Added maximum width */
+    height: 40em;
+    margin: 2em auto; /* Centered the container */
+    display: flex;
+    padding-bottom: 20em;
+    flex-direction: row;
+}
+
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            direction: rtl; /* Right to Left for Arabic */
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        /* Search bar on the far left */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+            border-radius: 25px;
+            padding: 5px;
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 5px;
+            font-size: 14px;
+            width: 200px;
+            border-radius: 25px;
+        }
+
+        /* Center the logo image */
+        .logo {
+            text-align: center;
+            flex-grow: 1; /* To center the logo */
+        }
+
+        .logo img {
+            max-width: 100%; /* To make sure the logo is responsive */
+            height: auto;
+            max-height: 100px; /* You can adjust the height according to your preference */
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right img {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+
+        /* Separator between sections */
+        .separator {
+            width: 1px;
+            height: 30px;
+            background-color: #ccc;
+            margin: 0 10px;
+        }
+
+/* Adjust the main content and sidebar to fit better */
+.sidebar {
+    width: 25%;
+    padding: 1em;
+    height: 34.3em;
+    overflow-y: visible;
+}
+
+.sidebar .profile {
+    background-color: rgb(246, 246, 246);
+    padding: 1.5em;
+    box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+    border-radius: 0.375em;
+    text-align: center;
+    height: 100%;
+}
+
+.profile-pic {
+    width: 8em;
+    height: 8em;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 0 auto 1em;
+    object-fit: cover;
+}
+
+.profile h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+}
+
+button, a.button {
+    display: block;
+    width: 100%;
+    padding: 0.75em 0;
+    border-radius: 0.375em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+button.primary, a.button.primary {
+    background-color: #0084bd;
+    
+}
+
+button.secondary, a.button.secondary {
+    background-color: #4c98b9;
+}
+
+/* Main Content */
+.main-content {
+    width: 73%; /* Changed to take full available width */
+    height: 34.3em;
+    padding: 1em;
+
+}
+
+.main-content h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+}
+
+/* Student Information Section */
+.student-info {
+    height: 34.3em;
+    width: 100%; /* Slightly reduced to account for padding */
+    background-color: #f6f6f6;
+    padding: 1em;
+    box-shadow: 0em 0.25em 0.375em rgba(0, 0, 0, 0.1);
+    border-radius: 0.375em;
+    margin-left: 1em; /* Added spacing between sidebar and content */
+}
+
+/* Student Information Table */
+.student-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    table-layout: fixed;
+}
+
+.student-info th, .student-info td {
+    padding: 8px; /* Adjust padding to make it smaller */
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.student-info th {
+    background-color: #0084bd;
+    color: white;
+}
+
+.student-info td {
+    background-color: #f9f9f9;
+}
+
+
+        /* Footer Styling */
+        .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0084bd;
+    padding: 10px 20px;
+    border-top: 2px solid #eee;
+    font-family: Arial, sans-serif;
+    direction: rtl; /* Right to Left for Arabic */
+}
+
+
+.footer-left img, .footer-right img {
+    max-width: 100px; /* Adjust the size of the logos */
+    height: auto;
+}
+
+.footer-center p {
+    font-size: 1em;
+    color: #ffffff;
+    margin: 0;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <!-- Right: Profile and AI with Separator -->
+        <div class="header-right">
+
+            <!-- Profile Page -->
+            <a href="ProfilePage.html">
+                <img src="images/account_icon.png" alt="Profile Icon">الحساب الشخصي
+            </a>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- AI Assistant -->
+            <a href="chat.html">
+                <img src="images/ai_icon.png" alt="AI Icon">مساعد الذكاء الاصطناعي
+            </a>
+
+        </div>
+
+        <!-- Center: Logo -->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.jpeg" alt="Logo"></a>
+        </div>
+
+        <!-- Left: Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="ابحث...">
+        </div>
+
+    </div>
+
+<div class="container">
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="profile">
+        <img src="images/user.png" alt="Parent" class="profile-pic">
+        <h2>نوره الكثيري</h2>
+        <a href="#" class="button secondary">Academic Textbook</a>
+        <a href="#" class="button secondary">Borrowed Books</a>
+        <a href="#" class="button secondary">History</a>
+    </div>
+</div>
+
+<div class="main-content">
+
+<!-- Student Information Section -->
+<div class="student-info">
+    <h3>معلومات الطالب</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>التخصص الدراسي</th>
+                <th>المستوى الدراسي</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>تقنية المعلومات</td>
+                <td>الخامس</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>عدد الكتب المستعارة</th>
+                <th>عدد الكتب المقروءة</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>٢</td>
+                <td>١٣</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+</div>
+ <!-- Footer Section -->
+ <div class="footer">
+    <!-- Right: University Logo -->
+    <div class="footer-right">
+        <img src="images/KSULOGO.png" alt="University Logo">
+    </div>
+
+    <!-- Center: Text -->
+    <div class="footer-center">
+        <p>جميع الحقوق محفوظة - لدى جامعة الملك سعود</p>
+    </div>
+
+    <!-- Left: 2030 Saudi Arabia Logo -->
+    <div class="footer-left">
+        <img src="images/Vision2030.png" alt="Saudi Arabia 2030 Logo">
+    </div>
+</div>
+
+
+
+
+</body>
+    </html>

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>رفع مشروع - منصة MARREFA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7fc;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #0084BD;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .container {
+      flex: 1;
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    h2 {
+      color: #0084BD;
+      margin-bottom: 1rem;
+    }
+    form input, form select, form textarea, form button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #0084BD;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0071a6;
+    }
+    .checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #0084BD; /* يخلي الصح بلون أزرق زي بقية الموقع */
+}
+
+  </style>
+</head>
+<body>
+  <header>📤 رفع مشروع التخرج - MARREFA</header>
+
+  <div class="container">
+    <h2>معلومات المشروع</h2>
+    <form>
+      <label>اسم الطالب</label>
+      <input type="text" placeholder="أدخل اسمك الكامل" required>
+      
+      <label>الرقم الجامعي</label>
+      <input type="text" placeholder="أدخل رقمك الجامعي" required>
+      
+      <label>البريد الجامعي</label>
+      <input type="email" placeholder="you@student.ksu.edu.sa" required>
+
+      <label>الكلية</label>
+      <select id="college" onchange="updateMajors()" required>
+        <option value="">اختر الكلية</option>
+        <option value="cs">كلية علوم الحاسب والمعلومات</option>
+        <option value="engineering">كلية الهندسة</option>
+        <option value="medicine">كلية الطب</option>
+        <option value="business">كلية إدارة الأعمال</option>
+      </select>
+
+      <label>التخصص</label>
+      <select id="major" required>
+        <option value="">اختر التخصص</option>
+      </select>
+
+      <label>عنوان المشروع</label>
+      <input type="text" placeholder="عنوان المشروع" required>
+      
+      <label>وصف مختصر</label>
+      <textarea rows="4" placeholder="نبذة عن المشروع" required></textarea>
+      
+      <label>تاريخ إصدار المشروع</label>
+      <input type="date" required>
+      
+      <label>تاريخ نشر المشروع (اختياري)</label>
+      <input type="date">
+      
+      <label>اسم المشرف الأكاديمي (اختياري)</label>
+      <input type="text" placeholder="اسم المشرف">
+      
+      <label>ملف المشروع (PDF)</label>
+      <input type="file" accept=".pdf" required>
+      
+      <div class="checkbox-container">
+        <input type="checkbox" required>
+        <span>أوافق على تسجيل مشروعي عبر البلوك تشين وحفظه في المنصة</span>
+      </div>
+      
+      
+      <button type="submit">رفع المشروع</button>
+    </form>
+  </div>
+
+  <script>
+    function updateMajors() {
+      var college = document.getElementById("college").value;
+      var major = document.getElementById("major");
+      major.innerHTML = '';
+
+      var options = {
+        "cs": ["علوم الحاسب", "هندسة البرمجيات", "تقنية المعلومات", "الذكاء الاصطناعي", "الأمن السيبراني"],
+        "engineering": ["هندسة كهربائية", "هندسة مدنية", "هندسة صناعية", "هندسة ميكانيكية", "هندسة كيميائية"],
+        "medicine": ["طب بشري", "طب أسنان", "صيدلة", "تمريض", "علاج طبيعي"],
+        "business": ["محاسبة", "تسويق", "إدارة مالية", "نظم معلومات إدارية", "موارد بشرية"]
+      };
+
+      if (options[college]) {
+        options[college].forEach(function(opt) {
+          var newOption = document.createElement("option");
+          newOption.value = opt;
+          newOption.textContent = opt;
+          major.appendChild(newOption);
+        });
+      } else {
+        var defaultOption = document.createElement("option");
+        defaultOption.textContent = "اختر التخصص";
+        major.appendChild(defaultOption);
+      }
+    }
+  </script>
+
+</body>
+</html>
